@@ -43,12 +43,12 @@ use std::{
 const WIFI_SSID: &str = "";
 const WIFI_PASS: &str = "";
 
-// MQTT configuration. You can use emqx.io to connect to the queue and send plaintext messages, which will be automatically displayed on the e-paper screen.
+// MQTT configuration. Not specific to AWS IoT but currently certificates aren't optional. If you want to use Emqx instead of AWS IoT, see https://www.emqx.com/en/blog/emqx-server-ssl-tls-secure-connection-configuration-guide
 const MQTT_ENDPOINT: &str = "YOUR_AWS_IOT_MQTT_ENDPOINT_HERE";
 const MQTT_CLIENT_ID: &str = "esp32-epaper-main";
 const MQTT_TOPIC_NAME: &str = "topic/sdk/test/rust";
 
-// AWS IoT certificate paths
+// AWS IoT certificate
 const CA_CERT_PATH: &str = "../certificates/AmazonRootCA1.pem";
 const THING_CERT_PATH: &str = "../certificates/esp32-epaper-main.client.crt";
 const THING_PRIVATE_KEY_PATH: &str = "../certificates/esp32-epaper-main.private.key";
