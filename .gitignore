@@ -1,0 +1,10 @@
+/.vscode
+/.embuild
+/target
+/Cargo.lock
+
+/certificates/*
+!/certificates/.gitkeep
+
+diagram.json
+wokwi.toml

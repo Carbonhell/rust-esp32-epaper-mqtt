@@ -1,0 +1,15 @@
+# Rust often needs a bit of an extra main task stack size compared to C (the default is 3K)
+# This is excessively large, but it is needed due to the display buffer being quite big. TODO allocate the buffer on the heap with Box
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=80000
+
+# Use this to set FreeRTOS kernel tick frequency to 1000 Hz (100 Hz by default).
+# This allows to use 1 ms granuality for thread sleeps (10 ms by default).
+#CONFIG_FREERTOS_HZ=1000
+
+# Workaround for https://github.com/espressif/esp-idf/issues/7631
+#CONFIG_MBEDTLS_CERTIFICATE_BUNDLE=n
+#CONFIG_MBEDTLS_CERTIFICATE_BUNDLE_DEFAULT_FULL=n
+
+# We need to disable the task watchdog to avoid restarts while listening on the mqtt topic (needs futher investigation)
+CONFIG_INT_WDT=n
+CONFIG_ESP_TASK_WDT=n
